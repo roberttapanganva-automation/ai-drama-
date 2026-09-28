@@ -1,0 +1,7 @@
+# Dola AI Execution Queue Template
+# Each prompt MUST be formatted as a single non-empty line.
+# Line 1 is always executed as the Sample Gate.
+# Subsequent lines are processed continuously by 2 concurrent autopilot workers.
+# Replace the placeholder line below with your episode's scene prompts:
+#
+# DURATION: 30s | RATIO: 9:16 | MODEL: seedance_2.5 | PROMPT: [Prepend frozen character/location blocks] + [Action Timeline 0.0-30.0s]

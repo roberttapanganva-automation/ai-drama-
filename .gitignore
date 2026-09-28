@@ -1,0 +1,52 @@
+# Dependencies & Environments
+node_modules/
+venv/
+.env
+
+# Model weights & binaries
+*.bin
+*.pt
+*.onnx
+*.safetensors
+*.gguf
+
+# Video & Raw Media (Keep repo lightweight for GitHub)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Audio Files (raw recordings / renders)
+*.wav
+*.m4a
+*.aac
+
+# Keep sound-fx and bgm directories tracked but ignore heavy raw drops
+sound-fx/*.mp3
+sound-fx/*.wav
+bgm/*.mp3
+bgm/*.wav
+!sound-fx/.gitkeep
+!bgm/.gitkeep
+
+# Rendered outputs in episodes & reverse engineering
+**/videos/*
+!**/videos/.gitkeep
+**/continuity-frames/*
+!**/continuity-frames/.gitkeep
+reverse-engineer/frames/*
+!reverse-engineer/frames/.gitkeep
+reverse-engineer/shots/*
+!reverse-engineer/shots/.gitkeep
+
+# Operating System & Editor Metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.vscode/
+.idea/
+*.tmp
+*.log

@@ -1,85 +1,127 @@
-# Dola AI Video Production Workspace Template
+# AI Drama Video Production Workspace Template
 
-Clean, production-ready starter template for automated 30-second vertical episodic drama generation powered by **Dola AI** and **Seedance 2.5**.
+Production-ready starter template for automated vertical episodic drama generation, cinematography standards, prompt systems, and quality assurance pipelines. Powered by **Seedance 2.5**, **Google Flow / Veo**, **Omni Flash**, **ChatGPT Automation**, and **Dola AI**.
 
-This repository contains all foundational workflows, cinematography standards, prompt templates, continuity rules, and automation protocols with zero project-specific content—ready to clone, customize, and push to GitHub.
+---
+
+## 🚀 Overview
+
+This repository contains all canonical workflows, cinematography standards, prompt templates, continuity rules, automated QA pipelines, and production toolsets for producing high-retention vertical short dramas (9:16).
+
+### Key Features
+
+* **Unified Workflow Baseline (v2.3 / Tagpi Credit-Optimized):** Multi-angle coverage, beat-based ingredients, uninterrupted dialogue line preservation, and delivery-tier selection.
+* **Cinematography & Prompt Standards:** Frame-by-frame vertical optical framing, 180° axis continuity, camera motions, and token-based character DNA preservation.
+* **Tagalog / Filipino Drama Playbook:** Counterpoint betrayal mechanics, high-engagement hook architecture, and phonetic dictionaries for accurate AI speech synthesis.
+* **Multi-Engine Video Generation:** Seamless support for Seedance 2.5 (30s scenes), Google Flow / Veo auto-handoff, Omni Flash prompt adapters, and Dola AI autopilot execution.
+* **Automated QA & CLI Tooling:** Built-in schema validation, manifest lifecycle tracking, rule drift audits, and automated test suites (`node scripts/workflow.mjs`, `node --test tests/*.test.mjs`).
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-Dola 2/
-├── .gitignore                          # Pre-configured rules ignoring large media and binaries
-├── START_HERE.md                       # Quickstart onboarding guide
-├── README.md                           # Main workspace documentation
-├── STRUCTURE.md                        # Detailed project directory layout
-├── PROJECT_RULES.md                    # Locked generation parameters & continuity rules
-├── AUTOMATION.md                       # Dola AI autopilot protocol & prompt injection
-├── DRAMA_PLAYBOOK.md                   # Narrative mechanics (Counterpoint Betrayal Engine)
-├── CAMERA_SHOTS_AND_ANGLE_CHOICES.md   # Vertical cinematography & framing standards
-├── project-state.json                  # Clean project state tracker
-├── dola-queue.txt                      # Single-line prompt queue for Dola AI autopilot
+ai-drama/
+├── .workflow/                         # Rule change ledger & machine-readable baselines
+│   ├── active-series-qa.json
+│   ├── rule-changes.jsonl
+│   └── rules-baseline.json
 │
-├── templates/                          # Reusable production templates
-│   ├── series-bible.template.md        # Series overview, logline & character cast
-│   ├── continuity.template.md          # 180° axis, wardrobe, & clip chaining log
-│   ├── character-sheet.template.md     # 4-view model reference prompt board
-│   ├── seedance-30s-scene.template.md  # 30-second scene breakdown with 7-beat timing
-│   └── dola-autopilot.template.txt     # Exact autopilot injection command for Dola AI
+├── schemas/                           # Strict JSON schemas for manifest validation
+│   ├── episode-v2.schema.json
+│   ├── episode-v2.2.schema.json
+│   └── episode-v2.3.schema.json
 │
-├── series/                             # Active episodic productions (created per show)
-│   └── <series-slug>/
-│       ├── series-bible.md
-│       ├── continuity.md
-│       ├── characters/                 # Character reference sheets & identity cards
-│       ├── locations/                  # Environmental reference prompts
-│       ├── props/                      # Key story props
-│       └── episodes/<episode-id>/      # Scripts, storyboards, queues, & renders
+├── scripts/                           # Production automation, exporters & QA tools
+│   ├── workflow.mjs                   # Main workflow CLI entry point
+│   ├── production.mjs                 # Batch prompt generation & asset pipeline
+│   ├── rules-qa.mjs                   # Static rule drift & conflict checker
+│   ├── export-tagpi-csv.mjs           # Tagpi CSV exporter
+│   ├── export-veo-csv-e001.mjs        # Veo batch exporter
+│   ├── chatgpt-automation-format.mjs  # ChatGPT image prompt formatter
+│   └── veo-auto-format.mjs            # Veo prompt formatter
 │
-├── reverse-engineer/                   # Narrative breakdown tools & audit framework
-│   ├── REVERSE_ENGINEERING_AUDIT.md    # Deconstructed viral drama anatomy
-│   ├── recognize.ps1                   # Local speech-to-text recognition tool
-│   ├── transcribe.ps1                  # Audio transcription script
-│   ├── frames/                         # Extracted reference frames (.gitkeep)
-│   └── shots/                          # Extracted reference shots (.gitkeep)
+├── templates/                         # Reusable production templates
+│   ├── brand-kit.template.md          # Page branding & visual identity template
+│   ├── continuity.template.md         # 180° axis, wardrobe, & clip chaining log
+│   ├── character-sheet.template.md    # 4-view model reference prompt board
+│   ├── series-bible.template.md       # Series overview, logline & character cast
+│   ├── seedance-30s-scene.template.md # 30-second scene breakdown with 7-beat timing
+│   ├── dola-autopilot.template.txt    # Dola AI autopilot injection prompt
+│   ├── episode.template.json          # Manifest v2.3 production template
+│   ├── omni-prompt.template.json      # Structured Omni Flash prompt template
+│   ├── page.template.json             # Facebook page profile schema template
+│   └── workflow-actions/              # Action lifecycle templates (auth, claim, retry, review)
 │
-├── sound-fx/                           # Diegetic sound effects & foley (.gitkeep)
-├── bgm/                                # Background music tracks (.gitkeep)
-└── scripts/                            # Automation and formatting helper scripts (.gitkeep)
+├── tests/                             # Automated test suite (56 tests)
+│   ├── workflow-tagpi.test.mjs        # Tagpi v2.3 workflow & manifest tests
+│   ├── workflow-v22.test.mjs          # Manifest v2.2 tests
+│   ├── production.test.mjs            # Production pipeline & export tests
+│   └── ...
+│
+├── examples/                          # Reference manifest implementations
+│   ├── v2.2/                          # Manifest v2.2 sample script & production JSON
+│   └── v2.3/                          # Manifest v2.3 Tagpi credit-optimized sample
+│
+├── reverse-engineer/                  # Deconstruction tools & audio transcription
+│   ├── REVERSE_ENGINEERING_AUDIT.md   # Viral drama anatomy breakdown
+│   ├── recognize.ps1                  # Local speech recognition helper
+│   └── transcribe.ps1                 # Audio transcription script
+│
+├── bgm/                               # Background music tracks (.gitkeep)
+├── sound-fx/                          # Diegetic foley & SFX (.gitkeep)
+├── series/                            # Active episodic productions (.gitkeep)
+│
+├── WORKFLOW_RULES.md                  # Canonical unified production rulebook (v2.3)
+├── SCRIPTWRITING_STANDARD.md          # 7-beat episodic scriptwriting standard
+├── CAMERA_SHOTS_AND_ANGLE_CHOICES.md  # Vertical cinematography & camera angles
+├── DRAMA_PLAYBOOK.md                  # Narrative mechanics & hook architecture
+├── AUTOMATION.md                      # End-to-end automation handoff protocols
+├── CHATGPT_AUTOMATION_HANDOFF.md      # ChatGPT batch image generation handoff
+├── VEO_AUTO_HANDOFF.md                # Google Veo automation handoff guide
+├── GOOGLE_FLOW_OMNI_PINOY_DRAMA_ADAPTER.md # Omni Flash & Flow prompt adapter
+├── TAGALOG_DIALOGUE_STANDARD.md       # Tagalog dialogue & natural phrasing rules
+├── DOLA_PHONETIC_DICTIONARY.md        # AI speech phonetic pronunciations
+├── CHARACTER_DNA_TOKENS.md            # Reusable character visual DNA tokens
+├── project-state.json                 # Clean workspace state tracker
+├── SKILL.md                           # Autopilot operational skill definition
+├── seedance_30s_prompt_system.md      # Seedance 2.5 prompt crafting guide
+└── dola-queue.txt                     # Prompt queue for autopilot execution
 ```
 
 ---
 
-## ⚡ Quickstart: Launching a New Series
+## ⚡ Quickstart
 
-### 1. Initialize Your Series
-1. Create a folder under `series/<series-slug>/` (e.g., `series/broken-vows/`).
+### 1. Verify Environment & Rules
+Run the built-in static QA checker and test suite:
+```powershell
+# Run rule consistency check
+node scripts/rules-qa.mjs check
+
+# Run automated workflow tests
+node --test tests/*.test.mjs
+```
+
+### 2. Launching a New Series
+1. Create a series directory under `series/<series-slug>/` (e.g. `series/broken-vows/`).
 2. Copy `templates/series-bible.template.md` to `series/<series-slug>/series-bible.md`.
 3. Copy `templates/continuity.template.md` to `series/<series-slug>/continuity.md`.
-4. Generate 4-view character sheets for your cast using `templates/character-sheet.template.md` and save them in `series/<series-slug>/characters/`.
+4. Generate 4-view character reference prompts using `templates/character-sheet.template.md`.
 
-### 2. Write an Episode
-1. Create an episode folder: `series/<series-slug>/episodes/E001/`.
-2. Draft your 30-second scene prompt using `templates/seedance-30s-scene.template.md`.
-3. Align the narrative with the 7-beat structure in `DRAMA_PLAYBOOK.md` and cinematography rules in `CAMERA_SHOTS_AND_ANGLE_CHOICES.md`.
-4. Format prompts into single-line entries in `dola-queue.txt`.
-
-### 3. Generate with Dola AI Autopilot
-1. Upload character references (`@1`, `@2`) and environment references (`@SCENE`).
-2. Attach `dola-queue.txt` in Dola AI.
-3. Send the activation command from `templates/dola-autopilot.template.txt` (documented in `AUTOMATION.md`).
-4. Approve the initial sample gate; Dola AI will execute the rest on autopilot with 2 concurrent workers.
+### 3. Writing & Producing an Episode
+1. Create `series/<series-slug>/episodes/E001/`.
+2. Draft the script following `SCRIPTWRITING_STANDARD.md` and `DRAMA_PLAYBOOK.md`.
+3. Copy `templates/episode.template.json` to configure shots, dialogue tiers, and visual actions.
+4. Export image and video generation batches using `node scripts/workflow.mjs` or `node scripts/production.mjs`.
 
 ---
 
-## 🛡️ Core Rules & Parameters
+## 🛡️ Core Rules & Standards
 
-* **Model:** `seedance_2.5`
-* **Duration:** `30s` per clip
-* **Aspect Ratio:** `9:16` vertical format
-* **Framerate:** `24fps`
-* **Visual Quality:** Ultra HD, Photorealistic, High Detail, Realistic Textures
-* **Consistency:** Strict identity assignment (`@1`, `@2`) with negative constraints to prevent facial morphing or wardrobe switching.
+* **Aspect Ratio:** `9:16` vertical video format.
+* **Workflow Profile:** `tagpi_credit_optimized` (Schema v2.3).
+* **Cinematography:** Multi-angle coverage for 1-reference shots, strict 180° axis preservation, and distinct camera angles per speaking turn.
+* **Dialogue Preservation:** Uninterrupted spoken lines, closed-mouth listeners during offscreen speech, and phonetically verified synthesis.
 
-See [PROJECT_RULES.md](PROJECT_RULES.md) for complete details.
+Consult [WORKFLOW_RULES.md](WORKFLOW_RULES.md) for complete production requirements.
